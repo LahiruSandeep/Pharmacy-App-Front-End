@@ -1,0 +1,18 @@
+<div class="card shadow-sm">
+
+    <div class="d-flex justify-content-center">
+        <img src="{{productInfo && productInfo.image}}" width="80%" height="200" alt="">
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{productInfo && productInfo.description}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <a href="#" class="btn btn-primary">ADD TO CART</a>
+            <a [routerLink]="['/checkout']" class="btn btn-primary">BUY NOW</a>
+            <small class="text-body-secondary">In Stock : {{productInfo && productInfo.rating.count}}</small>
+        </div>
+    </div>
+</div>
