@@ -6,6 +6,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ManageProductsComponent } from './pages/manage-products/manage-products.component';
 import { ManageCustomersComponent } from './pages/manage-customers/manage-customers.component';
 import { CustomersComponent } from './pages/customers/customers.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path : "manage-customers",
         component : ManageCustomersComponent
+    },
+    {
+        path : "orders",
+        component : OrdersComponent
     }
 ]

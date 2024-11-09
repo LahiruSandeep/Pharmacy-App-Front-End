@@ -56,19 +56,17 @@
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing address</h4>
-          <form class="needs-validation" novalidate>
+          <form class="">
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
+                <input [(ngModel)]="orders.firstName" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                
               </div>
   
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <input [(ngModel)]="orders.lastName" type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -78,7 +76,7 @@
                 <label for="username" class="form-label">Username</label>
                 <div class="input-group has-validation">
                   <!-- <span class="input-group-text">@</span> -->
-                  <input type="text" class="form-control" id="username" placeholder="Username" required>
+                  <input [(ngModel)]="orders.username" type="text" class="form-control" id="username" placeholder="Username" required>
                 <div class="invalid-feedback">
                     Your username is required.
                   </div>
@@ -87,7 +85,7 @@
   
               <div class="col-12">
                 <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <input [(ngModel)]="orders.email" type="email" class="form-control" id="email" placeholder="you@example.com">
                 <div class="invalid-feedback">
                   Please enter a valid email address for shipping updates.
                 </div>
@@ -95,7 +93,7 @@
 
               <div class="col-12">
                 <label for="contactNumber" class="form-label">Contact Number <span class="text-body-secondary"></span></label>
-                <input type="number" class="form-control" id="contact" placeholder="+94XX-XXXXXXX">
+                <input [(ngModel)]="orders.contactNumber" type="number" class="form-control" id="contact" placeholder="+94XX-XXXXXXX">
                 <div class="invalid-feedback">
                   Please enter a valid contact number for shipping updates.
                 </div>
@@ -103,7 +101,7 @@
   
               <div class="col-12">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <input [(ngModel)]="orders.address" type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
@@ -217,7 +215,7 @@
                     <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>   
                 </div>
                 <div class="col">
-                    <button class="w-80 btn btn-primary btn-lg" type="submit">Place Order</button>    
+                    <button (click)="addOrder()" class="w-80 btn btn-primary btn-lg" type="submit">Place Order</button>    
                 </div>
             </div>
   

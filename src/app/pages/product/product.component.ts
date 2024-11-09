@@ -16,9 +16,6 @@ export class ProductComponent implements OnInit{
     this.loadProductInformation();
   }
 
-  constructor(private http: HttpClient) {
-
-  }
 
   public productInfo: any = [];
 

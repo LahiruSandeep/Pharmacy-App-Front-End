@@ -13,4 +13,5 @@ export class ProductCardComponent {
   @Input()
   public productInfo:any = null;
 
+
 }

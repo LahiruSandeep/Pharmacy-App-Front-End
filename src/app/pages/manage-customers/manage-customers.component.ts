@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -6,7 +7,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-manage-customers',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, FormsModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './manage-customers.component.html',
   styleUrl: './manage-customers.component.css'
 })
@@ -14,21 +15,25 @@ export class ManageCustomersComponent {
 
   constructor(private http:HttpClient){}
 
-  public product:any = {
+  public customer:any = {
     name: "",
-    description: "",
-    price: "",
-    category: "",
-    supplierId: "",
-    rating: ""
+    address: "",
+    gender: "",
+    age: "",
+    contactNumber: "",
+    note: ""
 
   };
+
+  public customerList:any = [];
  
-  // addProduct() {
-  // //  this.http.post("http://localhost:8080/product/add-product")
-  //  console.log(this.product);
-  //  this.http.post("http://localhost:8080/product/add-product",this.product).subscribe(data => {
-  //   alert("Product Added!")
-  //  })
+  addCustomer() {
+   this.http.post("http://localhost:8080/customer/add-customer",this.customer).subscribe(data => {
+    alert("Customer Added!")
+    this.customerList = data;
+   })
+  
+  };
+ 
 
 }

@@ -2,37 +2,37 @@
     <h2 class="text-center">Customer Management</h2>
 
     <!-- Product Add Form -->
-    <div id="productForm" class="mt-6 ">
+    <div id="customerform" class="mt-6 ">
         <div class="form-group mb-4">
-            <label for="productName">Product Name</label>
-            <input [(ngModel)]="product.name" type="text" class="form-control" id="productName" placeholder="Enter Product Name" required>
+            <label for="customerName">Customer Name</label>
+            <input [(ngModel)]="customer.name" type="text" class="form-control" id="customerName" placeholder="Enter Customer Name" required>
         </div>
         <div class="form-group mb-4">
-            <label for="productDescription">Description</label>
-            <textarea [(ngModel)]="product.description" class="form-control" id="productDescription" rows="3" placeholder="Enter Product Description" required></textarea>
+            <label for="customerAddress">Address</label>
+            <textarea [(ngModel)]="customer.address" class="form-control" id="customerAddress" rows="3" placeholder="Enter Customer Address" required></textarea>
         </div>
         <div class="form-group mb-4">
-            <label for="productPrice">Price</label>
-            <input [(ngModel)]="product.price" type="number" class="form-control" id="productPrice" placeholder="Enter Product Price" required>
+            <label for="customerGender">Gender</label>
+            <select  [(ngModel)]="customer.gender" type="text" class="form-control" id="customerGender" placeholder="Enter Customer Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
         </div>
         <div class="form-group mb-4 ">
-            <label for="productQuantity">Quantity</label>
-            <input  type="number" class="form-control" id="productQuantity" placeholder="Enter Product Quantity" required>
+            <label for="customerAge">Age</label>
+            <input [(ngModel)]="customer.age" type="number" class="form-control" id="customerAge" placeholder="Enter Customer Age" required>
         </div>
         <div class="form-group mb-4">
-            <label for="productCategory">Category</label>
-            <input type="text" class="form-control" id="productCategory" placeholder="Enter Product Category" required>
+            <label for="CustomerContact">Contact</label>
+            <input [(ngModel)]="customer.contactNumber" type="number" class="form-control" id="customerContact" placeholder="Enter Customer contactNumber" required>
         </div>
         <div class="form-group mb-4">
-            <label for="SupplierId">Supplier ID</label>
-            <input [(ngModel)]="product.supplierId" type="text" class="form-control" id="SupplierId" placeholder="Enter Supplier Id" required>
-        </div>
-        <div class="form-group mb-5">
-            <label for="productRating">Rating</label>
-            <input [(ngModel)]="product.rating" type="number" class="form-control" id="productRating" placeholder="Enter Product Rating" required>
+            <label for="customerNote">Note</label>
+            <textarea [(ngModel)]="customer.note" type="text" class="form-control" id="CustomerNote" placeholder="Enter Note" required></textarea>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary ">Add Product</button>
+            <button (click)="addCustomer()" type="submit" class="btn btn-primary ">Add Customer</button>
             <button type="submit" class="btn btn-primary">Update Product</button>
         </div>
         
@@ -40,6 +40,7 @@
 
     <hr>
 </div>
+
 
 <!-- Edit Modal (for Update) -->
 <div class="modal" tabindex="-1" role="dialog" id="editModal">
