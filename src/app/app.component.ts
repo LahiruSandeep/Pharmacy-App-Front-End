@@ -13,5 +13,5 @@ import { ProductCardComponent } from './pages/product-card/product-card.componen
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Pharmacy-Manage-front-end';
+  title = 'CeylonCare Pharmacy | Sri Lanka';
 }

@@ -3,6 +3,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ManageProductsComponent } from './pages/manage-products/manage-products.component';
+import { ManageCustomersComponent } from './pages/manage-customers/manage-customers.component';
+import { CustomersComponent } from './pages/customers/customers.component';
 
 export const routes: Routes = [
     {
@@ -20,5 +23,17 @@ export const routes: Routes = [
     {
         path : "checkout",
         component : CheckoutComponent
+    },
+    {
+        path : "manage-products",
+        component : ManageProductsComponent
+    },
+    {
+        path : "customers",
+        component : CustomersComponent
+    },
+    {
+        path : "manage-customers",
+        component : ManageCustomersComponent
     }
-];
+]

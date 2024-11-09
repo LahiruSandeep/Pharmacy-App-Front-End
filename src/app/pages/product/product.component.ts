@@ -2,11 +2,12 @@ import { NgFor } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [ProductCardComponent, NgFor,HttpClientModule],
+  imports: [ProductCardComponent, NgFor,HttpClientModule, RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

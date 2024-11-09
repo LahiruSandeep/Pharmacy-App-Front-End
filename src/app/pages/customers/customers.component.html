@@ -1,0 +1,31 @@
+<div class="container">
+    <!-- <h2 class="text-center">Customer Management</h2> -->
+    <div class=" py-0 border-top-1px mb-5 ">
+        <button [routerLink]="['/manage-customers']" type="button" class="btn btn-primary right">Manage Customers</button>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Count</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Contact</th>
+            <th>Note</th>
+        </tr>
+        <tr *ngFor="let customer of customerList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{customer.customerId}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.gender}}</td>
+            <td>{{customer.age}}</td>
+            <td>{{customer.contactNumber}}</td>
+            <td>{{customer.note}}</td>
+            <td><button><i class="bi bi-trash-fill"></i></button></td>
+        </tr>
+    </table>
+    
+</div>
