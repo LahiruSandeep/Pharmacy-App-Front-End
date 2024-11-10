@@ -17,23 +17,22 @@
         </div>
         <div class="form-group mb-4 ">
             <label for="productQuantity">Quantity</label>
-            <input  type="number" class="form-control" id="productQuantity" placeholder="Enter Product Quantity" required>
+            <input [(ngModel)]="product.quantity"  type="number" class="form-control" id="productQuantity" placeholder="Enter Product Quantity" required>
         </div>
         <div class="form-group mb-4">
             <label for="productCategory">Category</label>
-            <input type="text" class="form-control" id="productCategory" placeholder="Enter Product Category" required>
+            <input [(ngModel)]="product.category" type="text" class="form-control" id="productCategory" placeholder="Enter Product Category" required>
         </div>
         <div class="form-group mb-4">
             <label for="SupplierId">Supplier ID</label>
             <input [(ngModel)]="product.supplierId" type="text" class="form-control" id="SupplierId" placeholder="Enter Supplier Id" required>
         </div>
-        <div class="form-group mb-5">
+        <div class="form-group mb-4">
             <label for="productRating">Rating</label>
             <input [(ngModel)]="product.rating" type="number" class="form-control" id="productRating" placeholder="Enter Product Rating" required>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <button  (click)="addProduct()" type="submit" class="btn btn-primary ">Add Product</button>
-            <button type="submit" class="btn btn-primary">Update Product</button>
         </div>
         
     </div>
@@ -41,6 +40,7 @@
     <hr>
 
     <!-- Product List (Table) -->
+    <h2 class="text-center mb-5 text-success">Product Table</h2>
     <table class="table table-bordered table-hover">
         <tr>
             <th>Count</th>
@@ -63,7 +63,11 @@
             <td>{{product.description}}</td>
             <td>{{product.supplierId}}</td>
             <td>{{product.rating}}</td>
-            <td><button><i class="bi bi-trash-fill"></i></button></td>
+            <td class="px-4">
+                <button (click)="deleteProduct(product.id)" type="button" class="btn bg-primary btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-trash-fill text-white"></i></button>
+                <button type="button" class="btn bg-danger btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-pencil-square text-white"></i></button>
+            </td>
+           
         </tr>
     </table>
 </div>
