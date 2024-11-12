@@ -64,8 +64,11 @@
             <td>{{product.supplierId}}</td>
             <td>{{product.rating}}</td>
             <td class="px-4">
-                <button (click)="deleteProduct(product.id)" type="button" class="btn bg-primary btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-trash-fill text-white"></i></button>
-                <button type="button" class="btn bg-danger btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-pencil-square text-white"></i></button>
+                <button (click)="deleteProduct(product.productId)" type="button" class="btn bg-primary btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-trash-fill text-white"></i></button>
+                <button (click)="selectProduct(product)"  class="modal"  type="button" class="btn bg-danger btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-pencil-square text-white"></i></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                  </button>
             </td>
            
         </tr>
@@ -101,9 +104,32 @@
         
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id="saveChanges">Save Changes</button>
             </div>
         </div>
     </div>
-</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

@@ -2,13 +2,14 @@ import { NgFor, NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-products',
   standalone: true,
-  imports: [FormsModule, NgIf, NgFor],
+  imports: [FormsModule, NgIf, NgFor, RouterLink],
   templateUrl: './manage-products.component.html',
   styleUrl: './manage-products.component.css'
 })
@@ -35,6 +36,7 @@ export class ManageProductsComponent {
    this.http.post("http://localhost:8080/product/add-product",this.product).subscribe(data => {
     alert("Product Added!")
     this.productList = data;
+    this.loadTable();
    })
   
   };
@@ -85,6 +87,41 @@ export class ManageProductsComponent {
       }
     });
 
+  }
+
+  public selectedProduct:any={};
+
+  selectProduct(product:any){
+    console.log(product);
+
+    this.selectedProduct=product;
+    
+  }
+
+  updateProduct(){
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.http.put("http://localhost:8080/product/update",this.selectedProduct).subscribe(res=>{
+          Swal.fire("Saved!", "", "success");
+        })
+        
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+
+  }
+
+
+  openModal(){
+    
   }
 
 }

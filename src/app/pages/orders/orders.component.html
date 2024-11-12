@@ -23,7 +23,9 @@
             <td>{{orders.email}}</td>
             <td>{{orders.contactNumber}}</td>
             <td>{{orders.address}}</td>
-            <td><button><i class="bi bi-trash-fill"></i></button></td>
+            <td>
+                <button (click)="deleteOrder(orders.orderId)" type="button" class="btn bg-primary px-4 btn-sm "><i class="bi bi-trash-fill text-white"></i></button>
+            </td>
         </tr>
     </table>
     

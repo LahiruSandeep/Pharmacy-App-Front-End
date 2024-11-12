@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-customers',
@@ -34,6 +35,8 @@ export class ManageCustomersComponent {
    })
   
   };
+
+ 
  
 
 }

@@ -47,20 +47,23 @@
             </li>
           </ul>
   
-          <form class="card p-2">
+          <div class="card p-2">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Promo code">
               <button type="submit" class="btn btn-secondary">Redeem</button>
             </div>
-          </form>
+          </div>
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing address</h4>
-          <form class="">
+          <div class="">
             <div class="row g-3">
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">First name</label>
-                <input [(ngModel)]="orders.firstName" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <!-- <label for="firstName" class="form-label">First name</label>
+                <input [(ngModel)]="orders.firstName" type="text" class="form-control" id="firstName" placeholder="" value="" > -->
+
+                <label for="customerAge">Age</label>
+                <input [(ngModel)]="orders.firstName" type="text" class="form-control" id="customerAge" placeholder="Enter Customer Age" required>
                 
               </div>
   
@@ -221,7 +224,7 @@
   
            
            
-          </form>
+          </div>
         </div>
       </div>
     </main>

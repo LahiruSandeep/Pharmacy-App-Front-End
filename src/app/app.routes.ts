@@ -7,6 +7,7 @@ import { ManageProductsComponent } from './pages/manage-products/manage-products
 import { ManageCustomersComponent } from './pages/manage-customers/manage-customers.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 
 export const routes: Routes = [
     {
@@ -27,7 +28,11 @@ export const routes: Routes = [
     },
     {
         path : "manage-products",
-        component : ManageProductsComponent
+        component : ManageProductsComponent,
+    },
+    {
+        path: "update",
+        component: UpdateProductComponent
     },
     {
         path : "customers",
@@ -35,7 +40,7 @@ export const routes: Routes = [
     },
     {
         path : "manage-customers",
-        component : ManageCustomersComponent
+        component : ManageCustomersComponent,
     },
     {
         path : "orders",
