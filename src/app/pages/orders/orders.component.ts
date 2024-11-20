@@ -66,4 +66,40 @@ export class OrdersComponent {
 
   }
 
+  public selectedOrder:any={};
+
+  selectOrder(orders:any){
+    console.log(orders);
+
+    this.selectedOrder=orders;
+    
+  }
+
+  updateOrdeer(){
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.http.put("http://localhost:8080/orders/update",this.selectedOrder).subscribe(res=>{
+          Swal.fire("Saved!", "", "success");
+        })
+        
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+
+  }
+
+
+  openModal(){
+    
+  }
+
+
 }

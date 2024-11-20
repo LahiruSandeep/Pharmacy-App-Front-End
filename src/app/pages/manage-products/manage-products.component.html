@@ -64,72 +64,121 @@
             <td>{{product.supplierId}}</td>
             <td>{{product.rating}}</td>
             <td class="px-4">
-                <button (click)="deleteProduct(product.productId)" type="button" class="btn bg-primary btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-trash-fill text-white"></i></button>
-                <button (click)="selectProduct(product)"  class="modal"  type="button" class="btn bg-danger btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-pencil-square text-white"></i></button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
-                  </button>
+                <!-- <button (click)="deleteProduct(product.productId)" type="button" class="btn bg-primary btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-trash-fill text-white"></i></button>
+                <button (click)="selectProduct(product)"  class="modal"  type="button" class="btn bg-danger btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-pencil-square text-white"></i></button> -->
+                
+
+
+                <button (click)="deleteProduct(product.productId)" type="button"
+                    class="btn bg-primary px-4 me-3 btn-sm">
+                    <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                </button>
+                <button (click)="selectProduct(product)" type="button" data-bs-toggle="modal"
+                    data-bs-target="#myModal" class="btn bg-danger px-4 btn-sm">
+                    <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z"
+                            clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                </button>
             </td>
            
         </tr>
     </table>
 </div>
-<!-- Edit Modal (for Update) -->
-<div class="modal" tabindex="-1" role="dialog" id="editModal">
-    <div class="modal-dialog" role="document">
+
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
+
+            <!-- Modal Header -->
             <div class="modal-header">
-                <h5 class="modal-title">Edit Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <h4 class="modal-title">Update Product</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+
+                    <div class="form-group mb-3">
+                        <label for="name">ID</label>
+                        <input [(ngModel)]="selectedProduct.productId" type="text" name="id" id="id"
+                            class="form-control" placeholder="ID" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="productName">Product Name</label>
+                        <input [(ngModel)]="selectedProduct.name" type="text" class="form-control" id="productName"
+                            placeholder="Enter Product Name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Date - Time</label>
+                        <input [(ngModel)]="selectedProduct.dateTime" type="datetime-local" name="name" id="name"
+                            class="form-control" placeholder="ID" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="price">Price</label>
+                        <input [(ngModel)]="selectedProduct.price" type="number" name="price" id="price"
+                            class="form-control" placeholder="Enter Price" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="quantity">Quantity</label>
+                        <input [(ngModel)]="selectedProduct.quantity" type="number" name="quantity" id="quantity"
+                            class="form-control" placeholder="Enter Quantity" required>
+                    </div>
+                   
+                    <div class="form-group mb-3">
+                        <label for="supplierId">Supplier ID</label>
+                        <input [(ngModel)]="selectedProduct.supplierId" type="text" name="supplierId" id="supplierId" class="form-control"
+                            placeholder="Enter Supplier ID" required>
+                    </div>
+                
+                    
+                    <div class="form-group mb-3">
+                        <label for="description">Description</label>
+                        <textarea [(ngModel)]="selectedProduct.description" id="description" rows="4" class="form-control"
+                            placeholder="Write Description here"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="category">Category</label>
+                        <select id="category" class="form-control">
+                            <option selected>{{selectedProduct.category}}</option>
+                            <option value="TV">Male</option>
+                            <option value="PC">Female</option>
+                            <option value="GA">Other</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="rating">Rating</label>
+                        <input [(ngModel)]="selectedProduct.rating" type="number" name="rating" id="rating"
+                            class="form-control" placeholder="Enter Rate" required>
+                    </div>
+                </div>
+                <button (click)="updateProduct()" type="submit" class="form-control btn btn-primary px-4">
+                    Update Appointment
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="editProductName">Product Name</label>
-                    <input type="text" class="form-control" id="editProductName">
-                </div>
-                <div class="form-group">
-                    <label for="editProductDescription">Description</label>
-                    <textarea class="form-control" id="editProductDescription" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="editProductPrice">Price</label>
-                    <input type="number" class="form-control" id="editProductPrice">
-                </div>
-                <div class="form-group">
-                    <label for="editProductQuantity">Quantity</label>
-                    <input type="number" class="form-control" id="editProductQuantity">
-                </div>
-        
-            </div>
+
+            <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChanges">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
+
         </div>
     </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  
+</div>

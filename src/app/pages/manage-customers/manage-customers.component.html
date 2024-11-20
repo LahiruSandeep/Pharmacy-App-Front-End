@@ -1,81 +1,135 @@
-<div class="container mt-5">
-    <h2 class="text-center">Customer Management</h2>
+<router-outlet></router-outlet>
+<div class="container">
+    <!-- <h2 class="text-center">Customer Management</h2> -->
+    <!-- <div class=" py-0 border-top-1px mb-5 ">
+        <button [routerLink]="['/manage-customers']" type="button" class="btn btn-primary right">Manage
+            Customers</button>
+    </div> -->
+    <br /><br />
 
-    <!-- Product Add Form -->
-    <div id="customerform" class="mt-6 ">
-        <div class="form-group mb-4">
-            <label for="customerName">Customer Name</label>
-            <input [(ngModel)]="customer.name" type="text" class="form-control" id="customerName" placeholder="Enter Customer Name" required>
-        </div>
-        <div class="form-group mb-4">
-            <label for="customerAddress">Address</label>
-            <textarea [(ngModel)]="customer.address" class="form-control" id="customerAddress" rows="3" placeholder="Enter Customer Address" required></textarea>
-        </div>
-        <div class="form-group mb-4">
-            <label for="customerGender">Gender</label>
-            <select  [(ngModel)]="customer.gender" type="text" class="form-control" id="customerGender" placeholder="Enter Customer Gender" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-        <div class="form-group mb-4 ">
-            <label for="customerAge">Age</label>
-            <input [(ngModel)]="customer.age" type="number" class="form-control" id="customerAge" placeholder="Enter Customer Age" required>
-        </div>
-        <div class="form-group mb-4">
-            <label for="CustomerContact">Contact</label>
-            <input [(ngModel)]="customer.contactNumber" type="number" class="form-control" id="customerContact" placeholder="Enter Customer contactNumber" required>
-        </div>
-        <div class="form-group mb-4">
-            <label for="customerNote">Note</label>
-            <textarea [(ngModel)]="customer.note" type="text" class="form-control" id="CustomerNote" placeholder="Enter Note" required></textarea>
-        </div>
-        <div>
-            <button (click)="addCustomer()" type="submit" class="btn btn-primary ">Add Customer</button>
-            
-        </div>
-        
-    </div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Count</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Contact</th>
+            <th>Note</th>
+        </tr>
+        <tr *ngFor="let customer of customerList; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ customer.customerId }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.gender }}</td>
+            <td>{{ customer.age }}</td>
+            <td>{{ customer.contactNumber }}</td>
+            <td>{{ customer.note }}</td>
+            <td>
+                <button (click)="deleteCustomer(customer.customerId)" type="button"
+                    class="btn bg-primary px-4 me-3 btn-sm">
+                    <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z"
+                            clip-rule="evenodd" />
+                    </svg>
 
-    <hr>
+                </button>
+                <button (click)="selectCustomer(customer)" type="button" data-bs-toggle="modal"
+                    data-bs-target="#myModal" class="btn bg-danger px-4 btn-sm">
+                    <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z"
+                            clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                </button>
+            </td>
+        </tr>
+    </table>
 </div>
 
 
-<!-- Edit Modal (for Update) -->
-<div class="modal" tabindex="-1" role="dialog" id="editModal">
-    <div class="modal-dialog" role="document">
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
+
+            <!-- Modal Header -->
             <div class="modal-header">
-                <h5 class="modal-title">Edit Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <h4 class="modal-title">Update Customer</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+
+                    <div class="form-group mb-3">
+                        <label for="name">ID</label>
+                        <input [(ngModel)]="selectedCustomer.customerId" type="text" name="name" id="name"
+                            class="form-control" placeholder="ID" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="customerName">Customer Name</label>
+                        <input [(ngModel)]="selectedCustomer.name" type="text" class="form-control" id="customerName"
+                            placeholder="Enter Customer Name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Date - Time</label>
+                        <input [(ngModel)]="selectedCustomer.dateTime" type="datetime-local" name="name" id="name"
+                            class="form-control" placeholder="ID" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="address">Address</label>
+                        <input [(ngModel)]="selectedCustomer.address" type="text" name="address" id="address"
+                            class="form-control" placeholder="Enter Address" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="category">Gender</label>
+                        <select id="category" class="form-control">
+                            <option selected>{{selectedCustomer.gender}}</option>
+                            <option value="TV">Male</option>
+                            <option value="PC">Female</option>
+                            <option value="GA">Other</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="age">Age</label>
+                        <input [(ngModel)]="selectedCustomer.age" type="number" name="age" id="age" class="form-control"
+                            placeholder="Enter age" required>
+                    </div>
+                
+                    <div class="form-group mb-3">
+                        <label for="price">Contact Number</label>
+                        <input [(ngModel)]="selectedCustomer.contactNumber" type="number" name="contactNumber" id="contactNumber"
+                            class="form-control" placeholder="Enter Contact Number" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="note">Note</label>
+                        <textarea [(ngModel)]="selectedCustomer.note" id="note" rows="4" class="form-control"
+                            placeholder="Write note here"></textarea>
+                    </div>
+                </div>
+                <button (click)="updateCustomer()" type="submit" class="form-control btn btn-primary px-4">
+                    Update Appointment
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="editProductName">Product Name</label>
-                    <input type="text" class="form-control" id="editProductName">
-                </div>
-                <div class="form-group">
-                    <label for="editProductDescription">Description</label>
-                    <textarea class="form-control" id="editProductDescription" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="editProductPrice">Price</label>
-                    <input type="number" class="form-control" id="editProductPrice">
-                </div>
-                <div class="form-group">
-                    <label for="editProductQuantity">Quantity</label>
-                    <input type="number" class="form-control" id="editProductQuantity">
-                </div>
-        
-            </div>
+
+            <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChanges">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
+
         </div>
     </div>
 </div>
-

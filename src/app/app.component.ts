@@ -8,7 +8,7 @@ import { ProductCardComponent } from './pages/product-card/product-card.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, DashboardComponent, ProductCardComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
