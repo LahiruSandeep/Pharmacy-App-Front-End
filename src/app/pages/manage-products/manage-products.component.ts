@@ -2,14 +2,12 @@ import { NgFor, NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-products',
   standalone: true,
-  imports: [FormsModule, NgIf, NgFor, RouterLink],
+  imports: [FormsModule, NgFor],
   templateUrl: './manage-products.component.html',
   styleUrl: './manage-products.component.css'
 })
@@ -118,7 +116,6 @@ export class ManageProductsComponent {
     });
 
   }
-
 
   openModal(){
     

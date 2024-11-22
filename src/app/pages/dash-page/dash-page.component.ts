@@ -5,7 +5,7 @@ import { HeaderComponent } from '../../common/header/header.component';
 @Component({
   selector: 'app-dash-page',
   standalone: true,
-  imports: [HeaderComponent, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './dash-page.component.html',
   styleUrl: './dash-page.component.css'
 })

@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AddCustomerComponent } from '../add-customer/add-customer.component';
 
 @Component({
   selector: 'app-manage-customers',
@@ -76,7 +77,6 @@ export class ManageCustomersComponent {
 
   }
 
-
   updateCustomer(){
     Swal.fire({
       title: "Do you want to save the changes?",
@@ -89,16 +89,12 @@ export class ManageCustomersComponent {
       if (result.isConfirmed) {
         this.http.put("http://localhost:8080/customer/update",this.selectedCustomer).subscribe(res=>{
           Swal.fire("Saved!", "", "success");
+          this.loadTable();
         })
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
       }
     });
-
-  
   }
-
- 
- 
 
 }

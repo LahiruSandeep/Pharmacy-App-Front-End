@@ -1,40 +1,47 @@
-<div class="container mt-5">
-    <h2 class="text-center">Product Management</h2>
+<div class="container mt-3">
+    <h2 class="text-center bg-light mb-2">Product Management</h2>
 
     <!-- Product Add Form -->
     <div id="productForm" class="mt-6 ">
         <div class="form-group mb-4">
             <label for="productName">Product Name</label>
-            <input [(ngModel)]="product.name" type="text" class="form-control" id="productName" placeholder="Enter Product Name" required>
+            <input [(ngModel)]="product.name" type="text" class="form-control" id="productName"
+                placeholder="Enter Product Name" required>
         </div>
         <div class="form-group mb-4">
             <label for="productDescription">Description</label>
-            <textarea [(ngModel)]="product.description" class="form-control" id="productDescription" rows="3" placeholder="Enter Product Description" required></textarea>
+            <textarea [(ngModel)]="product.description" class="form-control" id="productDescription" rows="3"
+                placeholder="Enter Product Description" required></textarea>
         </div>
         <div class="form-group mb-4">
             <label for="productPrice">Price</label>
-            <input [(ngModel)]="product.price" type="number" class="form-control" id="productPrice" placeholder="Enter Product Price" required>
+            <input [(ngModel)]="product.price" type="number" class="form-control" id="productPrice"
+                placeholder="Enter Product Price" required>
         </div>
         <div class="form-group mb-4 ">
             <label for="productQuantity">Quantity</label>
-            <input [(ngModel)]="product.quantity"  type="number" class="form-control" id="productQuantity" placeholder="Enter Product Quantity" required>
+            <input [(ngModel)]="product.quantity" type="number" class="form-control" id="productQuantity"
+                placeholder="Enter Product Quantity" required>
         </div>
         <div class="form-group mb-4">
             <label for="productCategory">Category</label>
-            <input [(ngModel)]="product.category" type="text" class="form-control" id="productCategory" placeholder="Enter Product Category" required>
+            <input [(ngModel)]="product.category" type="text" class="form-control" id="productCategory"
+                placeholder="Enter Product Category" required>
         </div>
         <div class="form-group mb-4">
             <label for="SupplierId">Supplier ID</label>
-            <input [(ngModel)]="product.supplierId" type="text" class="form-control" id="SupplierId" placeholder="Enter Supplier Id" required>
+            <input [(ngModel)]="product.supplierId" type="text" class="form-control" id="SupplierId"
+                placeholder="Enter Supplier Id" required>
         </div>
         <div class="form-group mb-4">
             <label for="productRating">Rating</label>
-            <input [(ngModel)]="product.rating" type="number" class="form-control" id="productRating" placeholder="Enter Product Rating" required>
+            <input [(ngModel)]="product.rating" type="number" class="form-control" id="productRating"
+                placeholder="Enter Product Rating" required>
         </div>
         <div class="d-flex justify-content-between align-items-center">
-            <button  (click)="addProduct()" type="submit" class="btn btn-primary ">Add Product</button>
+            <button (click)="addProduct()" type="submit" class="btn btn-primary ">Add Product</button>
         </div>
-        
+
     </div>
 
     <hr>
@@ -64,11 +71,6 @@
             <td>{{product.supplierId}}</td>
             <td>{{product.rating}}</td>
             <td class="px-4">
-                <!-- <button (click)="deleteProduct(product.productId)" type="button" class="btn bg-primary btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-trash-fill text-white"></i></button>
-                <button (click)="selectProduct(product)"  class="modal"  type="button" class="btn bg-danger btn-sm px-4 py-2.5 me-2 mb-2"><i class="bi bi-pencil-square text-white"></i></button> -->
-                
-
-
                 <button (click)="deleteProduct(product.productId)" type="button"
                     class="btn bg-primary px-4 me-3 btn-sm">
                     <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -79,8 +81,8 @@
                     </svg>
 
                 </button>
-                <button (click)="selectProduct(product)" type="button" data-bs-toggle="modal"
-                    data-bs-target="#myModal" class="btn bg-danger px-4 btn-sm">
+                <button (click)="selectProduct(product)" type="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                    class="btn bg-danger px-4 btn-sm">
                     <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -93,11 +95,9 @@
 
                 </button>
             </td>
-           
         </tr>
     </table>
 </div>
-
 
 
 <!-- The Modal -->
@@ -140,18 +140,18 @@
                         <input [(ngModel)]="selectedProduct.quantity" type="number" name="quantity" id="quantity"
                             class="form-control" placeholder="Enter Quantity" required>
                     </div>
-                   
+
                     <div class="form-group mb-3">
                         <label for="supplierId">Supplier ID</label>
-                        <input [(ngModel)]="selectedProduct.supplierId" type="text" name="supplierId" id="supplierId" class="form-control"
-                            placeholder="Enter Supplier ID" required>
+                        <input [(ngModel)]="selectedProduct.supplierId" type="text" name="supplierId" id="supplierId"
+                            class="form-control" placeholder="Enter Supplier ID" required>
                     </div>
-                
-                    
+
+
                     <div class="form-group mb-3">
                         <label for="description">Description</label>
-                        <textarea [(ngModel)]="selectedProduct.description" id="description" rows="4" class="form-control"
-                            placeholder="Write Description here"></textarea>
+                        <textarea [(ngModel)]="selectedProduct.description" id="description" rows="4"
+                            class="form-control" placeholder="Write Description here"></textarea>
                     </div>
                     <div class="form-group mb-3">
                         <label for="category">Category</label>

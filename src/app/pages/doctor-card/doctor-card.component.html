@@ -1,0 +1,17 @@
+<div class="card shadow-sm">
+    <div class="d-flex justify-content-center">
+        <img src="{{doctorInfo && doctorInfo.image}}" width="80%" height="200" alt="">
+    </div>
+    <div class="card-body">
+        <p class="card-text font-weight-bold">Dr. {{doctorInfo && doctorInfo.name}}</p>
+        <p class="card-text">{{doctorInfo && doctorInfo.category}}</p>
+        <p class="card-text">{{doctorInfo && doctorInfo.address}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">       
+                <button type="button" class="btn btn-sm btn-outline-light bg-success">status*</button>        
+            </div>
+            <a href="#" class="btn btn-primary btn-sm px-2 ">View Doctor</a>
+            <a [routerLink]="['/channeling']" class="btn btn-primary btn-sm px-3">Channel</a>  
+        </div>
+    </div>
+</div>

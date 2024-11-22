@@ -3,15 +3,11 @@
         <div class=" py-0 border-top-1px mb-5 ">
             <button [routerLink]="['/manage-products']" type="button" class="btn btn-primary right">Manage Products</button>
         </div>
-        
-
+    
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
             <div *ngFor="let product of productInfo" class="col">
                 <app-product-card [productInfo]="product" ></app-product-card>
             </div>
-
-
         </div>
     </div>
 </div>

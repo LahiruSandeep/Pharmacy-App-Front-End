@@ -1,9 +1,7 @@
 <header>
     <div class="px-2 py-2 text-bg-dark border-bottom">
       <div class="container">
-
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
           <h5 class="text-info"> <i class="bi bi-capsule-pill"></i>CeylonCare |</h5>
           <h6 class="text-warning"> Online Pharmacy</h6>
           <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
@@ -12,10 +10,8 @@
             </svg>
           </a>
 
-
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li [routerLink]="['/dashboard']">
-
               <a class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                   <use xlink:href="#home" />
@@ -31,8 +27,8 @@
                 Medicine & Products
               </a>
             </li>
-            <li>
-              <a href="#" class="nav-link text-white">
+            <li [routerLink]="['/doctors']">
+              <a class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                   <use xlink:href="#table" />
                 </svg>

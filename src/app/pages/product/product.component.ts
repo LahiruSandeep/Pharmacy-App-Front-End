@@ -1,5 +1,4 @@
 import { NgFor } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { RouterLink } from '@angular/router';
@@ -7,7 +6,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [ProductCardComponent, NgFor,HttpClientModule, RouterLink],
+  imports: [ProductCardComponent, NgFor, RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -15,7 +14,6 @@ export class ProductComponent implements OnInit{
   ngOnInit(): void {
     this.loadProductInformation();
   }
-
 
   public productInfo: any = [];
 
@@ -36,16 +34,6 @@ export class ProductComponent implements OnInit{
         console.log(data);
 
       });
-
-
-    // this.http.get("https://fakestoreapi.com/products")
-    //   .subscribe(data => {
-    //     this.productInfo = data;
-    //     console.log("B");
-
-    //   });
-
-
   }
 
 }

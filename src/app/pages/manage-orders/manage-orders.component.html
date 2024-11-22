@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <h2 class="text-center">Order Management</h2>
+
+    <!-- Order Add Form -->
+    <div id="orderForm" class="mt-6 ">
+        <div class="form-group mb-4">
+            <label for="orderId">Order ID</label>
+            <input [(ngModel)]="orders.orderId" type="text" class="form-control" id="orderId"
+                placeholder="Enter Order Id" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="firstName">First Name</label>
+            <input [(ngModel)]="orders.firstName" type="text" class="form-control" id="firstName"
+                placeholder="Enter First Name" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="lastName">Last Name</label>
+            <textarea [(ngModel)]="orders.lastName" type="text" class="form-control" id="lastName" 
+                placeholder="Enter Last Name" required></textarea>
+        </div>
+        <div class="form-group mb-4">
+            <label for="userName">User Name</label>
+            <textarea [(ngModel)]="orders.userName" type="text" class="form-control" id="userName" 
+                placeholder="Enter Username" required></textarea>
+        </div>
+        <div class="form-group mb-4">
+            <label for="email">Email</label>
+            <input [(ngModel)]="orders.email" type="email" class="form-control" id="email"
+                placeholder="Enter Product Price" required>
+        </div>
+        <div class="form-group mb-4 ">
+            <label for="productQuantity">Quantity</label>
+            <input [(ngModel)]="orders.quantity" type="number" class="form-control" id="productQuantity"
+                placeholder="Enter Product Quantity" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="productCategory">Category</label>
+            <input [(ngModel)]="orders.category" type="text" class="form-control" id="productCategory"
+                placeholder="Enter Product Category" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="SupplierId">Supplier ID</label>
+            <input [(ngModel)]="orders.supplierId" type="text" class="form-control" id="SupplierId"
+                placeholder="Enter Supplier Id" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="address">Address</label>
+            <input [(ngModel)]="orders.address" type="text" class="form-control" id="address" rows="3"
+                placeholder="Enter Address" required>
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <button (click)="addOrder()" type="submit" class="btn btn-primary ">Add Product</button>
+        </div>
+    </div>
+</div>

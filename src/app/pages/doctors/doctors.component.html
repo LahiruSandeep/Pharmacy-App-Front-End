@@ -1,0 +1,14 @@
+<div class="album py-2 bg-body-tertiary">
+    <div class="container">
+        <div class=" py-0 border-top-1px mb-5 ">
+            <button [routerLink]="['/manage-doctors']" type="button" class="btn btn-primary right">Manage Doctors</button>
+        </div>
+    
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div *ngFor="let doctor of doctorInfo" class="col">
+                <app-doctor-card [doctorInfo]="doctor"></app-doctor-card>
+            </div>
+        </div>
+    </div>
+</div>
+

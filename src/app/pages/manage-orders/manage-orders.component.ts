@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkout',
+  selector: 'app-manage-orders',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.css'
+  templateUrl: './manage-orders.component.html',
+  styleUrl: './manage-orders.component.css'
 })
-export class CheckoutComponent {
-
-  constructor(private http:HttpClient){}
+export class ManageOrdersComponent {
+  constructor(private http:HttpClient){
+    this.loadTable();
+  }
 
   public orders:any = {
     firstName: "",
@@ -32,4 +33,11 @@ export class CheckoutComponent {
    })
   
   };
+
+  loadTable(){
+    this.http.get("http://localhost:8080/orders/get-all-orders").subscribe(datas => {
+      this.orderList = datas;
+    })
+  }
+
 }

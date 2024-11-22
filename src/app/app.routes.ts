@@ -9,6 +9,8 @@ import { AddCustomerComponent } from './pages/add-customer/add-customer.componen
 import { CustomerRootComponent } from './pages/customer-root/customer-root.component';
 import { DashPageComponent } from './pages/dash-page/dash-page.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { ManageOrdersComponent } from './pages/manage-orders/manage-orders.component';
+import { DoctorsComponent } from './pages/doctors/doctors.component';
 
 export const routes: Routes = [
   {
@@ -20,8 +22,16 @@ export const routes: Routes = [
     component: ProductComponent
   },
   {
+    path: "doctors",
+    component: DoctorsComponent
+  },
+  {
     path: "orders",
     component: OrdersComponent
+  },
+  {
+    path: "place-order",
+    component: ManageOrdersComponent
   },
   {
     path: "manage-products",

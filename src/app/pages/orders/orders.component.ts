@@ -1,12 +1,14 @@
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, FormsModule, RouterLink],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
@@ -16,7 +18,25 @@ export class OrdersComponent {
     this.loadTable();
   }
 
+  public orders:any = {
+    firstName: "",
+    lastName: "",
+    userName: "",
+    email: "",
+    contactNumber: "",
+    address: ""
+  };
+
   public orderList:any = [];
+
+  addOrder() {
+    this.http.post("http://localhost:8080/orders/add-order",this.orders).subscribe(data => {
+     alert("Product Added!")
+     this.orderList = data;
+     this.loadTable();
+    })
+  };
+   
 
   loadTable(){
     this.http.get("http://localhost:8080/orders/get-all-orders").subscribe(data => {
@@ -75,7 +95,7 @@ export class OrdersComponent {
     
   }
 
-  updateOrdeer(){
+  updateOrder(){
     Swal.fire({
       title: "Do you want to save the changes?",
       showDenyButton: true,
@@ -87,6 +107,7 @@ export class OrdersComponent {
       if (result.isConfirmed) {
         this.http.put("http://localhost:8080/orders/update",this.selectedOrder).subscribe(res=>{
           Swal.fire("Saved!", "", "success");
+          this.loadTable();
         })
         
       } else if (result.isDenied) {
@@ -96,10 +117,8 @@ export class OrdersComponent {
 
   }
 
-
   openModal(){
     
   }
-
 
 }

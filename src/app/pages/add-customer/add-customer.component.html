@@ -1,7 +1,6 @@
 <div class="container mt-5">
-    <h2 class="text-center">Customer Management</h2>
 
-    <!-- Product Add Form -->
+    <!-- Customer Add Form -->
     <div id="customerform" class="mt-6 ">
         <div class="form-group mb-4">
             <label for="customerName">Customer Name</label>
@@ -32,11 +31,8 @@
             <textarea [(ngModel)]="customer.note" type="text" class="form-control" id="CustomerNote" placeholder="Enter Note" required></textarea>
         </div>
         <div>
-            <button (click)="addCustomer()" type="submit" class="btn btn-primary ">Add Customer</button>
-            
-        </div>
-        
+            <button (click)="addCustomer()" type="submit" class="btn btn-primary ">Add Customer</button>            
+        </div>      
     </div>
-
     <hr>
 </div>

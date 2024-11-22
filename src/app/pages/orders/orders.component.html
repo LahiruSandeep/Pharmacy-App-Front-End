@@ -1,8 +1,6 @@
 <div class="container">
-    <!-- <div class=" py-0 border-top-1px mb-5 "> -->
-        <button type="button" class="btn btn-primary right">Manage Orders</button>
-    <!-- </div> -->
-
+        <button [routerLink]="['/place-order']" type="button" class="btn btn-primary mb-4">Manage Orders</button>
+        <h3 class="text-success text-center mb-4">Order Table</h3>
     <table class="table table-bordered table-hover">
         <tr>
             <th>Count</th>
@@ -24,8 +22,6 @@
             <td>{{orders.contactNumber}}</td>
             <td>{{orders.address}}</td>
             <td>
-               
-
                 <button (click)="deleteOrder(orders.orderId)" type="button"
                     class="btn bg-primary px-4 me-3 btn-sm">
                     <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +30,9 @@
                             d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z"
                             clip-rule="evenodd" />
                     </svg>
-
                 </button>
-                <button (click)="selectedOrder(orders)" type="button" data-bs-toggle="modal"
+
+                <button (click)="selectOrder(orders)" type="button" data-bs-toggle="modal"
                     data-bs-target="#myModal" class="btn bg-danger px-4 btn-sm">
                     <svg class="w-6 h-6 text-gray-800 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -47,10 +43,77 @@
                             d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z"
                             clip-rule="evenodd" />
                     </svg>
-
                 </button>
             </td>
         </tr>
-    </table>
-    
+    </table>   
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update Order</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+
+                    <div class="form-group mb-3">
+                        <label for="name">ID</label>
+                        <input [(ngModel)]="selectedOrder.orderId" type="text" name="id" id="id"
+                            class="form-control" placeholder="ID" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="firstName">First Name</label>
+                        <input [(ngModel)]="selectedOrder.firstName" type="text" class="form-control" id="firstName"
+                            placeholder="Enter First Name" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="lastName">Last Name</label>
+                        <input [(ngModel)]="selectedOrder.lastName" type="text" class="form-control" id="lastName"
+                            placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="userName">User Name</label>
+                        <input [(ngModel)]="selectedOrder.userName" type="text" class="form-control" id="userName"
+                            placeholder="Enter User Name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Date - Time</label>
+                        <input [(ngModel)]="selectedOrder.dateTime" type="datetime-local" name="name" id="name"
+                            class="form-control" placeholder="ID" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input [(ngModel)]="selectedOrder.email" type="email" name="email" id="email"
+                            class="form-control" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="contactNumber">Contact</label>
+                        <input [(ngModel)]="selectedOrder.contactNumber" type="number" name="contactNumber" id="contactNumber"
+                            class="form-control" placeholder="Enter Contact Number" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="address"><Address></Address></label>
+                        <textarea [(ngModel)]="selectedOrder.address" id="address" rows="3"
+                            class="form-control" placeholder="Enter Address"></textarea>
+                    </div>
+                <button (click)="updateOrder()" type="submit" class="form-control btn btn-primary px-4">
+                    Update Order
+                </button>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
